@@ -1,28 +1,27 @@
 {
-  "name": "eatdaburger",
+  "name": "burgers",
   "version": "1.0.0",
-  "description": "Restaurant App",
+  "description": "",
   "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "method-override": "^2.3.10",
+    "mysql": "^2.16.0"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DKMitt/burger.git"
+    "url": "git+https://github.com/Bhoward19/burgers.git"
   },
-  "author": "D K Mittlestaedt",
+  "author": "Branden",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DKMitt/burger/issues"
+    "url": "https://github.com/Bhoward19/burgers/issues"
   },
-  "homepage": "https://github.com/DKMitt/burger#readme",
-  "dependencies": {
-    "body-parser": "^1.18.3",
-    "express": "^4.16.3",
-    "express-handlebars": "^3.0.0",
-    "method-override": "^2.3.10",
-    "mysql": "^2.16.0"
-  },
-  "devDependencies": {}
+  "homepage": "https://github.com/Bhoward19/burgers#readme"
 }
