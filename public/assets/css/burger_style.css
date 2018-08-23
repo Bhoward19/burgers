@@ -27,19 +27,18 @@ img {
 
 h1 {
 	text-align: center;
-	text-shadow: 2px 2px #ffffff;
+
 }
 
 h2 {
 	text-align: center;
-	text-shadow: 2px 2px #ffffff;
 }
 
 .create-update-form {
   padding: 25px;
   margin: 25px;
   background: #eceff1;
-  border: 1px black solid;
+  border: 1px blue;
 }
 
 .form-group {
@@ -55,7 +54,7 @@ html, body{
 }
 body { 
 
-	background-color: #000000;  
+	background-color:#21c166;  
 }
 
 div, body{
@@ -67,7 +66,7 @@ div, body{
 
 .footer {
 	text-align: center;
-	text-shadow: 1px 1px #ffffff;
+	
 }
 .wrapper {
 	height: 100%; 
@@ -83,7 +82,7 @@ div, body{
   bottom: 0; 
   display: block;
   position: absolute;
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(97, 238, 107, 0.6);
   color: #fff;
   padding: 0.5em;
 }
