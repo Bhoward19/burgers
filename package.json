@@ -9,7 +9,8 @@
     "express-handlebars": "^3.0.0",
     "method-override": "^2.3.10",
     "mysql": "^2.16.0",
-    "orm": "^5.0.2"
+    "orm": "^5.0.2",
+    "require": "^2.4.20"
   },
   "devDependencies": {},
   "scripts": {
