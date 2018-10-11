@@ -1,33 +1,28 @@
-
 {
-
-
-
-  "name": "burgers",
+  "name": "homework12-eat-da-burger",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "dependencies": {
-    "body-parser": "^1.18.3",
-    "express": "^4.16.3",
-    "express-handlebars": "^3.0.0",
-    "method-override": "^2.3.10",
-    "mysql": "^2.16.0",
-    "orm": "^5.0.2",
-    "require": "^2.4.20"
-  },
-  "devDependencies": {},
+  "description": "* Eat-Da-Burger! is a restaurant app that lets users input the names of burgers they'd like to eat.",
+  "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "watch": "nodemon server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Bhoward19/burgers.git"
   },
-  "author": "Branden",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Bhoward19/burgers/issues"
   },
-  "homepage": "https://github.com/Bhoward19/burgers#readme"
+  "homepage": "https://github.com/Bhoward19/burgers#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
+    "method-override": "^3.0.0",
+    "mysql": "^2.16.0"
+  }
 }

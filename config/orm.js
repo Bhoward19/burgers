@@ -1,79 +1,87 @@
-
-var connection = require("../config/connection.js");
-
+/*
+Below are the orms which will query the burger database
+*/
+var connection = require('../config/connection.js');
 
 function printQuestionMarks(num) {
-  var arr = [];
+	var array = [];
 
-  for (var i = 0; i < num; i++) {
-    arr.push("?");
-  }
+	for (var i = 0; i < num; i++) {
+		array.push('?');
+	}
 
-  return arr.toString();
+	return array.toString();
 }
-
 
 function objToSql(ob) {
-  var arr = [];
+	// column1=value, column2=value2,...
+	var array = [];
 
-  for (var key in ob) {
-    if (Object.hasOwnProperty.call(ob, key)) {
-      arr.push(key + "=" + ob[key]);
-    }
-  }
+	for (var key in ob) {
+		if (ob.hasOwnProperty(key)) {
+			array.push(key + '=' + ob[key]);
+		}
+	}
 
-  return arr.toString();
+	return array.toString();
 }
 
-
 var orm = {
-  all: function(tableInput, cb) {
-    var queryString = "SELECT * FROM " + tableInput + ";";
-    connection.query(queryString, function(err, result) {
-      if (err) {
-        throw err;
-      }
-      cb(result);
-    });
-  },
-  create: function(table, cols, vals, cb) {
-    var queryString = "INSERT INTO " + table;
+	// orm to show all values in the burger database.
+	all: function (tableInput, callback) {
+		var queryString = 'SELECT * FROM ' + tableInput + ';';
+		connection.query(queryString, function (error, result) {
+			if (error) throw error;
+			callback(result);
+		});
+	},
+	// orm to add values to the burger database
+	// vals is an arrayay of values that we want to save to cols
+	// cols are the columns we want to insert the values into
+	create: function (table, cols, vals, callback) {
+		var queryString = 'INSERT INTO ' + table;
 
-    queryString += " (";
-    queryString += cols.toString();
-    queryString += ") ";
-    queryString += "VALUES (";
-    queryString += printQuestionMarks(vals.length);
-    queryString += ") ";
+		queryString = queryString + ' (';
+		queryString = queryString + cols.toString();
+		queryString = queryString + ') ';
+		queryString = queryString + 'VALUES (';
+		queryString = queryString + printQuestionMarks(vals.length);
+		queryString = queryString + ') ';
 
-    console.log(queryString);
+		console.log(queryString);
 
-    connection.query(queryString, vals, function(err, result) {
-      if (err) {
-        throw err;
-      }
-      cb(result);
-    });
-  },
-  // An example of objColVals would be {name: panther, sleepy: true}
-  update: function(table, objColVals, condition, cb) {
-    var queryString = "UPDATE " + table;
+		connection.query(queryString, vals, function (error, result) {
+			if (error) throw error;
+			callback(result);
+		});
+	},
+	// orm to update values in the burger database
+	// objColVals would be the columns and values that you want to update
+	update: function (table, objColVals, condition, callback) {
+		var queryString = 'UPDATE ' + table;
 
-    queryString += " SET ";
-    queryString += objToSql(objColVals);
-    queryString += " WHERE ";
-    queryString += condition;
+		queryString = queryString + ' SET ';
+		queryString = queryString + objToSql(objColVals);
+		queryString = queryString + ' WHERE ';
+		queryString = queryString + condition;
 
-    console.log(queryString);
-    connection.query(queryString, function(err, result) {
-      if (err) {
-        throw err;
-      }
+		console.log(queryString);
+		connection.query(queryString, function (error, result) {
+			if (error) throw error;
+			callback(result);
+		});
+	},
+	// orm to delete from the burger database - future use
+	delete: function (table, condition, callback) {
+		var queryString = 'DELETE FROM ' + table;
+		queryString = queryString + ' WHERE ';
+		queryString = queryString + condition;
 
-      cb(result);
-    });
-  }
+		connection.query(queryString, function (error, result) {
+			if (error) throw error;
+			callback(result);
+		});
+	}
 };
 
-// Export the orm object for the model (cat.js).
 module.exports = orm;
